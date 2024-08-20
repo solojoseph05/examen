@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estado de Cuenta de Comisiones</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Estilos CSS */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .chart-container {
+      width: 100%;
+      height: 400px;
+      margin-bottom: 20px;
+    }
+
+    .conclusion {
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+  <h1>Estado de Cuenta de Comisiones</h1>
+
+  <section>
+    <h2>Resumen Ejecutivo</h2>
+    <table>
+      <tr>
+        <th>Comisión Total del Mes</th>
+        <th>Comisión Acumulada del Año</th>
+        <th>Ventas Totales del Mes</th>
+        <th>Ventas Acumuladas del Año</th>
+        <th>Porcentaje de Comisión Promedio</th>
+      </tr>
+      <tr>
+        <td>$13,580</td>
+        <td>$150,000</td>
+        <td>$500,000</td>
+        <td>$3,000,000</td>
+        <td>5%</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Detalle de Comisiones por Mes</h2>
+    <div class="chart-container">
+      <canvas id="comissionsChart"></canvas>
+    </div>
+    <script>
+      // Datos de ejemplo
+      var months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+      var commissions = [20000, 22000, 25000, 18000, 23000, 22000, 20000, 25000, 18000, 22000, 24000, 26000];
+
+      // Crear el gráfico de barras
+      var ctx = document.getElementById('comissionsChart').getContext('2d');
+      var comissionsChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: months,
+          datasets: [{
+            label: 'Comisiones',
+            data: commissions,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    </script>
+  </section>
+
+  <section>
+    <h2>Detalle de Ventas por Producto</h2>
+    <table>
+      <tr>
+        <th>Producto</th>
+        <th>Ventas Totales</th>
+        <th>Comisión Total</th>
+      </tr>
+      <tr>
+        <td>Producto A</td>
+        <td>$1,200,000</td>
+        <td>$60,000</td>
+      </tr>
+      <tr>
+        <td>Producto B</td>
+        <td>$850,000</td>
+        <td>$42,500</td>
+      </tr>
+      <tr>
+        <td>Producto C</td>
+        <td>$950,000</td>
+        <td>$47,500</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Desglose de Comisiones del Mes</h2>
+    <table>
+      <tr>
+        <th>Comisión Mensual Base</th>
+        <th>Bono por Ventas de Servicios</th>
+        <th>Bono por Ventas de Equipo</th>
+        <th>Total</th>
+      </tr>
+      <tr>
+        <td>$830</td>
+        <td>$250</td>
+        <td>$12,500</td>
+        <td>$13,580</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="conclusion">
+    <h2>Conclusión</h2>
+    <p>Este reporte ofrece a Antonio Sepúlveda una visión integral y detallada de su desempeño en ventas y comisiones, lo que le permitirá tomar decisiones estratégicas para mejorar su rendimiento como Ejecutivo de Venta.</p>
+  </section>
+</body>
+</html>
